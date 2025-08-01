@@ -1,0 +1,84 @@
+
+// FORMAT TANGGAL
+    {
+        data: 'start_date',
+        name: 'start_date',
+        render: function(data, type, row) {
+            if (type === 'display' && data) {
+                const dateObj = new Date(data);
+                return dateObj.toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+            }
+            return data;
+        }
+    },
+    {
+        data: 'end_date',
+        name: 'end_date',
+        render: function(data, type, row) {
+            if (type === 'display' && data) {
+                const dateObj = new Date(data);
+                return dateObj.toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+            }
+            return data;
+        }
+    },
+
+// FORMAT TANGGAL TANPA DATEPICKER
+use Illuminate\Support\Carbon;
+setlocale(LC_TIME, 'id_ID'); // Untuk fungsi bawaan PHP
+Carbon::setLocale('id');     // Untuk Carbon
+
+'tanggal'    => Carbon::parse($item->start_date)->translatedFormat('d M Y') . ' s.d. ' . Carbon::parse($item->end_date)->translatedFormat('d M Y'),
+
+// INPUT TANGGAL
+    $("#datepicker2").datepicker({
+        uiLibrary: "bootstrap5",
+        format: "yyyy-mm-dd",
+        showOtherMonths: true,
+        modal: true
+    });
+
+// UNTUK TAG FORM TAMBAHKAN INI
+autocomplete="off"
+
+// UNTUK SORTING DARI BUTTON IS_OPEN
+$query->orderByDesc('is_open');
+
+// UNTUK QUERY !=
+->whereNotIn('status_pengajuan', ['Ditolak']);
+
+// UNTUK SEARCH
+    ->orWhereHas('dos_kedua', function ($subQ) use ($search) {
+        $subQ->where('name', 'like', "%{$search}%");
+    });
+
+    ->orWhere('status_pengajuan', 'like', "%{$search}%");
+
+// UNTUK BUTTON STYLE
+<div class="d-flex">
+style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;"
+
+// NOTE
+<p class="p-2 border border-secondary rounded-3 fst-italic">
+    <span class="fw-semibold fst-normal" style="color:darkblue">Penting!</span><br>1. Harap diperhatikan
+    bahwa tanggal
+    harus dibuka pada hari-H pembukaan periode. <br>2. Tanggal tutup hanya bersifat informatif, penutupan
+    tidak otomatis mengikuti tanggal.
+</p>
+
+// UNTUK CREATED_AT (SORTING) - PAKAI 'desc'
+{
+    data: 'created_at',
+    name: 'created_at',
+    visible: false
+}
+
+'created_at' => $item->created_at->toDateTimeString(),

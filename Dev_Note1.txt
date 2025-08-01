@@ -1,0 +1,190 @@
+$   php artisan serve --host=127.0.0.1
+
+$   php artisan migrate:fresh --seed
+
+// Untuk regen autoload composer (refresh class map)
+$   composer dump-autoload
+
+$   php artisan config:clear && php artisan cache:clear && php artisan view:clear && php artisan route:clear
+
+Error Storage:
+    $ rmdir public\storage /s /q
+    $ php artisan storage:link
+
+AIprompt:
+    Konteks untuk chat ini:
+    1. Proyek sistem informasi tugas akhir mahasiswa.
+    2. Backend dengan Laravel 11
+    3. Frontend dengan CoreUI Bootstrap 5
+
+
+
+-----------------------------------------------------------------------------------------------
+notes bimbingan hari ini:
+    1. edit pembukaan periode buatkan 4 bagian  (pengajuan proposal, sempro, semhas, su)
+    2. ⁠tambahkan catatan tolak/terima (100-150 kata)
+    3. ⁠tambahkan maks. kuota per dosen yg mengajukan topik (kuota bisa diatur oleh admin/koor TA, tergantung jumlah dan beban dosen yang ada di PWK)
+    set berapa banyak mahasiswa yg bisa diterima
+    4. tambahkan juga sisa kuota bimbingan dosen (koor TA)
+    5. ⁠pembimbing pendamping (dosbing 2) bisa di assign oleh admin
+    6. ⁠bagian penilaian yg diinput oleh dosen pada masing2 sidang (sempro, semhas, su)
+    ada bagian data mahasiswanya, judul TA, dosbing 1 2, dosen penguji 1,2., 
+    input nilai (format bisa diliat dari referensi BAP masing2 sidang)
+    masukkan juga poin penilaiannya
+    7. pendaftaran mandiri mahasiswa bisa buat jadwal sendiri di semhas dan su
+    8. ⁠halaman edit panduan yg diupload ( tamplate laporan TA, dan teknis pelaksanaan )
+
+validasi jadwal ga bisa sama tanggal dan waktunya
+notif email
+
+
+-----------------------------------------------------------------------------------------------
+*ket. lulus/tidak lulus :
+    Lulus tanpa perbaikan
+    Lulus dengan perbaikan
+    Lulus bersyarat
+    Tidak lulus
+
+perubahan nilai ta setelah sidang ujian
+    yg perlu di upload: 
+    1. Buku Tugas Akhir yang sudah fix cetak
+    2. Lembar Pengesahan Buku Tugas Akhir
+    3. Logbook Bimbingan Tugas Akhir keseluruhan digabung (Logbook Sempro, Semhas, dan Sidang)
+    4. BA Sidang Akhir
+
+
+
+
+-----------------------------------------------------------------------------------------------
+@push('style')
+    <style>
+        .dataTables_wrapper .dataTables_filter {
+            float: left !important;
+            text-align: left !important;
+            margin-bottom: 10px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate {
+            float: right !important;
+            text-align: right !important;
+        }
+
+
+        #table1 {
+            table-layout: fixed;
+            word-wrap: break-word;
+            width: 100% !important;
+        }
+
+        #table1 td, // semua halaman pakai id table seragam spt ini
+        #table1 th {
+            word-break: break-word;
+            white-space: normal;
+        }
+
+        .dataTables_wrapper {
+            overflow-x: auto;
+        }
+
+
+        .badge-status {
+            display: inline-block;
+            min-width: 70px;
+            text-align: center;
+            padding: 0.35em 0.6em;
+            font-size: 0.875em;
+            font-weight: 600;
+            border-radius: 0.25rem;
+        }
+
+        .badge-open {
+            background-color: #b0f7d7;
+            color: #0f5132;
+        }
+
+        .badge-closed {
+            background-color: #f0a5ab;
+            color: #842029;
+        }
+    </style>
+@endpush
+
+scrollX: true,
+
+
+-----------------------------------------------------------------------------------------------
+Controller:
+    'is_open'    => $item->is_open
+        ? '<div class="d-flex"><span class="badge-status badge-open flex-fill">Dibuka</span></div>'
+        : '<div class="d-flex"><span class="badge-status badge-closed flex-fill">Ditutup</span></div>',
+    'aksi'       => $item->is_open
+        ? '<button class="btn btn-primary btn-sm" style="min-width: 100px;" onclick="if(confirm(\'Yakin ingin tutup periode ini?\')) tutupPeriode(' . $item->id . ')">Tutup</button>'
+        : '<button class="btn btn-secondary btn-sm" style="min-width: 100px;" onclick="if(confirm(\'Yakin ingin hapus data ini?\')) hapusPeriode(' . $item->id . ')">Hapus</button>',
+
+
+-----------------------------------------------------------------------------------------------
+Blade <script>:
+        {
+            data: 'is_open',
+            name: 'is_open'
+        },
+        {
+            data: 'aksi',
+            name: 'aksi',
+            orderable: false,
+            searchable: false
+        },
+        {
+            data: 'created_at',
+            name: 'created_at',
+            visible: false
+        }
+    ],
+    columnDefs: [{
+        targets: [5], // utk kolom aksi (button)
+        className: 'text-center' 
+    }],
+    order: [
+        [6, 'desc']  // utk indexing dari kolom created_at
+    ]
+
+
+-----------------------------------------------------------------------------------------------
+Top div:
+    <div class="body flex-grow-1">
+        <div class="container-lg px-3">
+            <div class="row g-4 mb-4">
+                <div class="card py-3">
+                    <span class="fw-semibold fs-5">Kelola Periode Tugas Akhir</span>
+                    <hr />
+
+
+-----------------------------------------------------------------------------------------------
+Fungsi Search:
+    $query->where(function ($q) use ($search) {
+        $q->where('name', 'like', "%{$search}%")
+        ->orWhere('type', 'like', "%{$search}%");
+    }); // Harus sesuai nama kolom di database
+
+
+-----------------------------------------------------------------------------------------------
+Reload halaman:
+    success: function(response) {
+        alert(response.message);
+        location.reload();
+    },
+
+
+
+-----------------------------------------------------------------------------------------------
+Error handler di view:
+    error: function(xhr) {
+    let message = 'Gagal memperbarui kuota.';
+
+    if (xhr.responseJSON && xhr.responseJSON.message) {
+        message = xhr.responseJSON.message;
+    }
+
+    alert(message);
+    console.error(xhr);
+}
