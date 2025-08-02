@@ -17,7 +17,7 @@ use App\Http\Controllers\xadm\DataPengguna as x0DataPengguna;
 
 use App\Http\Controllers\xdos\Homepage as x1Homepage;
 use App\Http\Controllers\xdos\PeriodeTA as x1PeriodeTA;
-use App\Http\Controllers\xdos\inputTopik as x1InputTopik;
+use App\Http\Controllers\xdos\InputTopik as x1InputTopik;
 use App\Http\Controllers\xdos\DataMahasiswa as x1DataMahasiswa;
 use App\Http\Controllers\xdos\AgendaSidang as x1AgendaSidang;
 
