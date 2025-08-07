@@ -8,14 +8,14 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 my-2">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Nama Periode</th>
-                        <th scope="col">Tipe Periode</th>
-                        <th scope="col">Tanggal Buka</th>
-                        <th scope="col">Tanggal Tutup</th>
-                        <th scope="col">Status</th>
+                        <th scope="col" width="150px">Nama Periode</th>
+                        <th scope="col" width="150px">Tipe Periode</th>
+                        <th scope="col" width="150px">Tanggal Buka</th>
+                        <th scope="col" width="150px">Tanggal Tutup</th>
+                        <th scope="col" width="150px">Status</th>
                     </tr>
                 </thead>
             </table>

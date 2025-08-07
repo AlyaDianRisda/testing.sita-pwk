@@ -6,16 +6,24 @@
         <span class="fw-semibold fs-5 mb-1">Informasi Periode Tugas Akhir</span>
         <hr />
 
+        <p class="p-2 border border-secondary rounded-3 fst-italic">
+            <span class="fw-semibold fst-normal" style="color:darkblue">Penting!</span>
+            <br>1. Periode <span class="fw-semibold">Pengajuan Proposal</span> adalah periode untuk mengajukan judul tugas akhir dan dosen pembimbing. 
+            <br>2. Periode <span class="fw-semibold">Seminar Proposal </span>dan <span class="fw-semibold">Seminar Pembahasan</span> adalah periode untuk pendaftaran seminar.
+            <br>3. Periode <span class="fw-semibold">Sidang Ujian</span> adalah periode untuk pendaftaran sidang ujian/sidang akhir.
+            <br>4. Setelah melakukan <span class="fw-semibold">Sidang Ujian</span>, kamu dapat mengajukan perubahan nilai melalui halaman <a href="{{ route('x2.PendaftaranSidang-4') }}">penilaian</a>.
+        </p>
+
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Nama Periode</th>
-                        <th scope="col">Tipe Periode</th>
-                        <th scope="col">Tanggal Buka</th>
-                        <th scope="col">Tanggal Tutup</th>
-                        <th scope="col">Status</th>
+                        <th scope="col" width="150px">Nama Periode</th>
+                        <th scope="col" width="150px">Tipe Periode</th>
+                        <th scope="col" width="150px">Tanggal Buka</th>
+                        <th scope="col" width="150px">Tanggal Tutup</th>
+                        <th scope="col" width="150px">Status</th>
                     </tr>
                 </thead>
             </table>

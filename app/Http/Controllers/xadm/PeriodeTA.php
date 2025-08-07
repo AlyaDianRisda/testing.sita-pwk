@@ -70,8 +70,8 @@ class PeriodeTA extends Controller
                         ? '<div class="d-flex"><span class="badge-status badge-open flex-fill">Dibuka</span></div>'
                         : '<div class="d-flex"><span class="badge-status badge-closed flex-fill">Ditutup</span></div>',
                         'aksi'       => $item->is_open
-                        ? '<button class="btn btn-primary btn-sm" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" onclick="if(confirm(\'Yakin ingin tutup periode ini?\')) tutupPeriode(' . $item->id . ')">Tutup</button>'
-                        : '<button class="btn btn-secondary btn-sm" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" onclick="if(confirm(\'Yakin ingin hapus data ini?\')) hapusPeriode(' . $item->id . ')">Hapus</button>',
+                        ? '<div class="d-flex"><button class="btn btn-primary btn-sm flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" onclick="if(confirm(\'Yakin ingin tutup periode ini?\')) tutupPeriode(' . $item->id . ')">Tutup</button>'
+                        : '<div class="d-flex"><button class="btn btn-secondary btn-sm flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" onclick="if(confirm(\'Yakin ingin hapus data ini?\')) hapusPeriode(' . $item->id . ')">Hapus</button>',
                         'created_at' => $item->created_at->toDateTimeString(),
                     ];
                 });
@@ -128,7 +128,7 @@ class PeriodeTA extends Controller
                         'dosen'      => optional($item->dosen)->name,
                         'tipe_dosen' => optional($item->dosen)->tipe_dos,
                         'kuota_ta'   => $item->kuota_total,
-                        'aksi'       => '<button class="btn btn-primary btn-sm edit-kuota" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" data-id="' . $item->id . '" data-kuota="' . $item->kuota_total . '">Edit Kuota</button>',
+                        'aksi'       => '<div class="d-flex"><button class="btn btn-primary btn-sm flex-fill edit-kuota" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" data-id="' . $item->id . '" data-kuota="' . $item->kuota_total . '">Edit Kuota</button>',
                         'title'      => optional($item->period)->name,
                         'created_at' => $item->created_at->toDateTimeString(),
                     ];

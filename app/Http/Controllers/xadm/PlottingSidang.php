@@ -29,7 +29,7 @@ class PlottingSidang extends Controller
     {
         if ($request->ajax()) {
             $query = SidangSubmission::with(['user', 'topik', 'dosen', 'penguji', 'penguji2'])
-                ->whereNotIn('status_sidang', ['Ditolak']);
+                ->whereNotIn('status_sidang', ['Ditolak', 'Selesai', 'Dinilai']);
             $recordsTotal = SidangSubmission::count();
 
             if ($request->has('search') && $request->search['value'] != '') {

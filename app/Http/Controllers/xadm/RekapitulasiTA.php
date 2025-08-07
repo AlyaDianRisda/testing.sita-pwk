@@ -88,7 +88,7 @@ class RekapitulasiTA extends Controller
                         'topik_pilihan'    => optional($item->topik)->title,
                         'dos_utama'        => optional($item->dos_utama)->name,
                         'status_pengajuan' => $item->status_pengajuan,
-                        'dos_kedua'        => optional($item->dos_kedua)->name ?? '', // ← Tampilkan nama jika sudah ada
+                        'dos_kedua'        => optional($item->dos_kedua)->name ?? 'N/A', // ← Tampilkan nama jika sudah ada
                         'status_pengajuan' => $item->status_pengajuan,
                         'created_at'       => $item->created_at->toDateTimeString(),
                     ];

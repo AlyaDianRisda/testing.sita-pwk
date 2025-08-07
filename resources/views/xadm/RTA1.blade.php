@@ -9,16 +9,16 @@
         <!-- DATA TABLE 1 -->
         <span class="my-3 fw-bold fst-italic"> Proses Pengajuan Mahasiswa :</span>
         <div class="col-12 mt-1">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">NIM</th>
-                        <th scope="col">Nama Mahasiswa</th>
-                        <th scope="col">Draft Laporan</th>
-                        <th scope="col">Topik Pilihan</th>
-                        <th scope="col">Dosen Pembimbing</th>
-                        <th scope="col">Validasi</th>
-                        <th scope="col">Dosen Pendamping</th>
+                        <th scope="col" width="150px">NIM</th>
+                        <th scope="col" width="150px">Nama Mahasiswa</th>
+                        <th scope="col" width="150px">Draft Laporan</th>
+                        <th scope="col" width="150px">Topik Pilihan</th>
+                        <th scope="col" width="150px">Dosen Pembimbing</th>
+                        <th scope="col" width="150px">Validasi</th>
+                        <th scope="col" width="150px">Dosen Pendamping</th>
                     </tr>
                 </thead>
             </table>
@@ -27,15 +27,15 @@
         <!-- DATA TABLE 2 -->
         <span class="my-3 fw-bold fst-italic"> Data Topik dan Validasi Dosen :</span>
         <div class="col-12 mt-1">
-            <table class="table table-bordered table-hover" id="table2">
+            <table class="table table-hover" id="table2">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Nama Dosen</th>
-                        <th scope="col">Topik</th>
-                        <th scope="col">Bidang</th>
-                        <th scope="col">Kuota</th>
-                        <th scope="col">Diajukan</th>
-                        <th scope="col">Diterima</th>
+                        <th scope="col" width="150px">Nama Dosen</th>
+                        <th scope="col" width="150px">Topik</th>
+                        <th scope="col" width="150px">Bidang</th>
+                        <th scope="col" width="150px">Kuota</th>
+                        <th scope="col" width="150px">Diajukan</th>
+                        <th scope="col" width="150px">Diterima</th>
                     </tr>
                 </thead>
             </table>
@@ -120,7 +120,7 @@
                         data: 'dos_kedua',
                         name: 'dos_kedua',
                         render: function(data, type, row) {
-                            if (!data || data === '') {
+                            if (!data || data === 'N/A') {
                                 return `<a href="#" class="assign-dosen" data-id="${row.id}" data-nama="${row.nama}">Assign</a>`;
                             }
                             return data;

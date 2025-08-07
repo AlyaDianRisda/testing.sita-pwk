@@ -176,6 +176,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
     // USER::HOMEPAGE
     Route::get('/user/home/view', [x2Homepage::class, 'x2homeView'])->name('x2.Homepage');
+    Route::get('/user/home/json2', [x2Homepage::class, 'x2homeData2'])->name('x2.Homepage-json2');
 
     // USER::PERIODE_TA
     Route::get('/user/pta/view', [x2PeriodeTA::class, 'x2ptaView'])->name('x2.PeriodeTA');

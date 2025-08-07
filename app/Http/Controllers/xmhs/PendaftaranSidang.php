@@ -32,6 +32,7 @@ class PendaftaranSidang extends Controller
             'idDosen'    => $data?->dosen?->id,
             'idDosen2'   => $data?->dosen2?->id,
             'namaDosen'  => $data?->dosen?->name,
+            'namaDosen2' => $data?->dosen2?->name,
 
         ]);
     }
@@ -68,8 +69,6 @@ class PendaftaranSidang extends Controller
                 ->map(function ($item) {
                     return [
                         'id'             => $item->id,
-                        'topik'          => optional($item->topik)->title,
-                        'judul'          => $item->judul,
                         'tipe_sidang'    => $item->tipe_sidang,
                         'tipe_pengajuan' => $item->tipe_pengajuan,
                         'form1'          => $item->fsp1_pendaftaran
@@ -180,6 +179,7 @@ class PendaftaranSidang extends Controller
             'idDosen'    => $data?->dosen?->id,
             'idDosen2'   => $data?->dosen2?->id,
             'namaDosen'  => $data?->dosen?->name,
+            'namaDosen2' => $data?->dosen2?->name,
 
         ]);
     }
@@ -215,8 +215,6 @@ class PendaftaranSidang extends Controller
                 ->map(function ($item) {
                     return [
                         'id'             => $item->id,
-                        'topik'          => optional($item->topik)->title,
-                        'judul'          => $item->judul,
                         'tipe_sidang'    => $item->tipe_sidang,
                         'tipe_pengajuan' => $item->tipe_pengajuan,
                         'form1'          => $item->fsh1_pendaftaran
@@ -338,6 +336,7 @@ class PendaftaranSidang extends Controller
             'idDosen'    => $data?->dosen?->id,
             'idDosen2'   => $data?->dosen2?->id,
             'namaDosen'  => $data?->dosen?->name,
+            'namaDosen2' => $data?->dosen2?->name,
 
         ]);
     }
@@ -374,8 +373,6 @@ class PendaftaranSidang extends Controller
                 ->map(function ($item) {
                     return [
                         'id'             => $item->id,
-                        'topik'          => optional($item->topik)->title,
-                        'judul'          => $item->judul,
                         'tipe_sidang'    => $item->tipe_sidang,
                         'tipe_pengajuan' => $item->tipe_pengajuan,
                         'form1'          => $item->fsu1_buku
@@ -531,9 +528,9 @@ class PendaftaranSidang extends Controller
                         'status_sidang' => $item->status_sidang,
                         'ket_hasil'     => $item->hasil,
                         'aksi'          => ($item->tipe_sidang === 'Sidang Ujian')
-                        ? '<a href="' . route('x2.PendaftaranSidang4-json2', ['id' => $item->id]) . '" class="btn btn-primary btn-sm flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;">Perubahan</a>'
+                        ? '<div class="d-flex"><a href="' . route('x2.PendaftaranSidang4-json2', ['id' => $item->id]) . '" class="btn btn-primary btn-sm flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;">Perubahan Nilai</a>'
                         : '',
-                        'created_at' => $item->created_at->toDateTimeString(),
+                        'created_at'    => $item->created_at->toDateTimeString(),
                     ];
                 });
 
@@ -549,7 +546,7 @@ class PendaftaranSidang extends Controller
     // PAGE::DATA2
     public function x2pds4Data2(Request $request)
     {
-        $data = SidangSubmission::with(['topik', 'user', 'dosen', 'penguji', 'penguji2'])
+        $data = SidangSubmission::with(['topik', 'user', 'dosen', 'dosen2', 'penguji', 'penguji2'])
             ->where('id', $request->id)
             ->first();
 
@@ -564,6 +561,7 @@ class PendaftaranSidang extends Controller
             'namaUser'    => $data?->user?->name,
             'judul'       => $data?->judul,
             'namaDosen'   => $data?->dosen?->name,
+            'namaDosen2'  => $data?->dosen2?->name,
             'idDosen'     => $data?->dosen?->id,
             'tipe_sidang' => $data?->tipe_sidang,
             'penguji'     => $data?->penguji?->name,
@@ -626,7 +624,7 @@ class PendaftaranSidang extends Controller
             'un3_ba'         => $filePath3,
             'un4_pengesahan' => $filePath4,
             'tipe_sidang'    => 'Ubah Nilai',
-            'status_sidang'  => 'Pending',
+            'status_sidang'  => 'Dinilai',
         ]);
 
         return response()->json([
@@ -665,20 +663,20 @@ class PendaftaranSidang extends Controller
                 ->get()
                 ->map(function ($item) {
                     return [
-                        'id'     => $item->id,
-                        'form1'  => $item->un1_buku
+                        'id'         => $item->id,
+                        'form1'      => $item->un1_buku
                         ? '<a href="' . asset('storage/' . $item->un1_buku) . '" target="_blank">Lihat File</a>'
                         : '-',
-                        'form2'  => $item->un2_logbook
+                        'form2'      => $item->un2_logbook
                         ? '<a href="' . asset('storage/' . $item->un2_logbook) . '" target="_blank">Lihat File</a>'
                         : '-',
-                        'form3'  => $item->un3_ba
+                        'form3'      => $item->un3_ba
                         ? '<a href="' . asset('storage/' . $item->un3_ba) . '" target="_blank">Lihat File</a>'
                         : '-',
-                        'form4'  => $item->un4_pengesahan
+                        'form4'      => $item->un4_pengesahan
                         ? '<a href="' . asset('storage/' . $item->un4_pengesahan) . '" target="_blank">Lihat File</a>'
                         : '-',
-                        'status' => $item->status_sidang,
+                        'status'     => $item->status_sidang,
                         'created_at' => $item->created_at->toDateTimeString(),
 
                     ];

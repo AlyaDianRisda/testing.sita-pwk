@@ -76,15 +76,15 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-4">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Nama Periode</th>
-                        <th scope="col">Tipe Periode</th>
-                        <th scope="col">Tanggal Buka</th>
-                        <th scope="col">Tanggal Tutup</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Penutupan</th>
+                        <th scope="col" width="150px">Nama Periode</th>
+                        <th scope="col" width="150px">Tipe Periode</th>
+                        <th scope="col" width="150px">Tanggal Buka</th>
+                        <th scope="col" width="150px">Tanggal Tutup</th>
+                        <th scope="col" width="150px">Status</th>
+                        <th scope="col" width="150px">Penutupan</th>
                     </tr>
                 </thead>
             </table>
@@ -98,16 +98,16 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
-            <table class="table table-bordered table-hover" id="table2">
+            <table class="table table-hover" id="table2">
                 <thead>
                     <tr class="table-light">
                         <th scope="col" colspan="4" id="periode-title">Nama Periode</th>
                     </tr>
                     <tr class="table-light">
-                        <th scope="col">Nama Dosen</th>
-                        <th scope="col">Tipe Dosen</th>
-                        <th scope="col">Kuota</th>
-                        <th scope="col">Status</th>
+                        <th scope="col" width="150px">Nama Dosen</th>
+                        <th scope="col" width="150px">Tipe Dosen</th>
+                        <th scope="col" width="150px">Kuota</th>
+                        <th scope="col" width="150px">Status</th>
                     </tr>
                 </thead>
             </table>
@@ -259,7 +259,7 @@
                     }
                 ],
                 order: [
-                    [5, 'desc']
+                    [1, 'desc']
                 ]
             });
 

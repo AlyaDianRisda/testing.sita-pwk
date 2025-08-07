@@ -7,35 +7,55 @@
         <hr />
 
         <!-- STATUS -->
-        {{-- <span class="my-3 fw-bold fst-italic"> Progres Sidang Akhir :</span>
-        <div class="row">
+        <span class="my-3 fw-bold fst-italic "> Data Mahasiswa :</span>
+        
+        <div class="row mb-2">
+            <div class="col-6">
+                <div class="border-start border-start-4 border-start-primary px-3 mb-3">
+                    <div class="small text-body-secondary fw-semibold text-truncate">Jumlah Mahasiswa</div>
+                    <div class="fs-5 fw-semibold">{{ $jumlahMahasiswa ?? 'N/A' }}&nbsp;&nbsp;Mahasiswa</div>
+                    <div class="small text-primary text-truncate"><a class="text-decoration-none" href="{{ route('x1.DataMahasiswa-2') }}">🕊️ Data Mahasiswa Dibimbing</a></div>
+                </div>
+            </div>
             <div class="col-6">
                 <div class="border-start border-start-4 border-start-info px-3 mb-3">
-                    <div class="small text-body-secondary text-truncate">Sidang Terakhir</div>
-                    <div class="fs-5 fw-semibold">Seminar Proposal</div>
+                    <div class="small text-body-secondary fw-semibold text-truncate">Pengajuan Topik</div>
+                    <div class="fs-5 fw-semibold">{{ $pengajuanTopik ?? 'N/A' }}&nbsp;&nbsp;Pengajuan</div>
+                    <div class="small text-primary text-truncate"><a class="text-decoration-none" href="{{ route('x1.DataMahasiswa-1') }}">🕊️ Data Pengajuan Proposal</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-6">
+                <div class="border-start border-start-4 border-start-danger px-3 mb-3">
+                    <div class="small text-body-secondary fw-semibold text-truncate">Agenda Sidang</div>
+                    <div class="fs-5 fw-semibold">{{ $permintaanSidang ?? 'N/A' }}&nbsp;&nbsp;Agenda</div>
+                    <div class="small text-primary text-truncate"><a class="text-decoration-none" href="{{ route('x1.AgendaSidang') }}">🕊️ Halaman Agenda Sidang</a></div>
                 </div>
             </div>
             <div class="col-6">
-                <div class="border-start border-start-4 border-start-danger px-3 mb-3">
-                    <div class="small text-body-secondary text-truncate">Pengajuan Terbaru</div>
-                    <div class="fs-5 fw-semibold">Seminar Pembahasan</div>
+                <div class="border-start border-start-4 border-start-success px-3 mb-3">
+                    <div class="small text-body-secondary fw-semibold text-truncate">Permintaan Nilai</div>
+                    <div class="fs-5 fw-semibold">{{ $permintaanNilai ?? 'N/A' }}&nbsp;&nbsp;Permintaan</div>
+                    <div class="small text-primary text-truncate"><a class="text-decoration-none" href="{{ route('x1.DataMahasiswa-3') }}">🕊️ Halaman Permintaan Nilai</a></div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
         {{-- <span class="my-2"></span> --}}
 
         <!-- DATA TABLE -->
-        <span class="my-3 fw-bold fst-italic"> Periode yang Terbuka :</span>
-        <div class="col-12">
+        <span class="my-3 fw-bold fst-italic ">Data Periode Terkini :</span>
+        <div class="col-12 mb-5">
             <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col" width="110px">Nama Periode</th>
-                        <th scope="col" width="100px">Tipe Periode</th>
-                        <th scope="col" width="125px">Tgl Buka</th>
-                        <th scope="col" width="125px">Tgl Tutup</th>
-                        <th scope="col" width="100px">Status</th>
+                        <th scope="col" width="150px">Nama Periode</th>
+                        <th scope="col" width="150px">Tipe Periode</th>
+                        <th scope="col" width="150px">Tgl Buka</th>
+                        <th scope="col" width="150px">Tgl Tutup</th>
+                        <th scope="col" width="150px">Status</th>
                     </tr>
                 </thead>
             </table>

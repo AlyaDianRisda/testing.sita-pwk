@@ -8,19 +8,19 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">NIM</th>
-                        <th scope="col">Nama Mahasiswa</th>
-                        <th scope="col">Tipe Sidang</th>
-                        <th scope="col">Tipe Pengajuan</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Waktu</th>
-                        <th scope="col">Lokasi</th>
-                        <th scope="col">Skema</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Review</th>
+                        <th scope="col" width="150px">Status</th>
+                        <th scope="col" width="150px">NIM</th>
+                        <th scope="col" width="150px">Nama Mahasiswa</th>
+                        <th scope="col" width="150px">Tipe Sidang</th>
+                        <th scope="col" width="150px">Tipe Pengajuan</th>
+                        <th scope="col" width="150px">Tanggal</th>
+                        <th scope="col" width="150px">Waktu</th>
+                        <th scope="col" width="150px">Lokasi</th>
+                        <th scope="col" width="150px">Skema</th>
+                        <th scope="col" width="150px">Review</th>
                     </tr>
                 </thead>
             </table>
@@ -39,8 +39,11 @@
                 serverSide: true,
                 scrollX: true,
                 ajax: '{{ route('x0.PlottingSidang-json1') }}',
-
                 columns: [{
+                        data: 'status',
+                        name: 'status'
+                    },
+                    {
                         data: 'nim',
                         name: 'nim'
                     },
@@ -72,10 +75,7 @@
                         data: 'skema',
                         name: 'skema'
                     },
-                    {
-                        data: 'status',
-                        name: 'status'
-                    },
+
                     {
                         data: 'aksi',
                         name: 'aksi'
@@ -87,7 +87,7 @@
                     }
                 ],
                 order: [
-                    [8, 'desc']
+                    [10, 'desc']
                 ]
             });
         });

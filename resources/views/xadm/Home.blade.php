@@ -7,21 +7,26 @@
         <hr />
 
         <!-- STATUS -->
-        {{-- <span class="my-3 fw-bold fst-italic"> Progres Sidang Akhir :</span>
-        <div class="row">
-            <div class="col-6">
-                <div class="border-start border-start-4 border-start-info px-3 mb-3">
-                    <div class="small text-body-secondary text-truncate">Sidang Terakhir</div>
-                    <div class="fs-5 fw-semibold">Seminar Proposal</div>
-                </div>
-            </div>
+        <span class="my-3 fw-bold fst-italic "> Data Mahasiswa :</span>
+
+        <div class="row mb-2">
             <div class="col-6">
                 <div class="border-start border-start-4 border-start-danger px-3 mb-3">
-                    <div class="small text-body-secondary text-truncate">Pengajuan Terbaru</div>
-                    <div class="fs-5 fw-semibold">Seminar Pembahasan</div>
+                    <div class="small text-body-secondary fw-semibold text-truncate">Permintaan Sidang</div>
+                    <div class="fs-5 fw-semibold">{{ $permintaanSidang ?? 'N/A' }}&nbsp;&nbsp;Permintaan</div>
+                    <div class="small text-primary text-truncate"><a class="text-decoration-none"
+                            href="{{ route('x0.PlottingSidang') }}">🕊️ Halaman Plotting Sidang</a></div>
                 </div>
             </div>
-        </div> --}}
+            <div class="col-6">
+                <div class="border-start border-start-4 border-start-info px-3 mb-3">
+                    <div class="small text-body-secondary fw-semibold text-truncate">Validasi Penilaian</div>
+                    <div class="fs-5 fw-semibold">{{ $permintaanNilai ?? 'N/A' }}&nbsp;&nbsp;Permintaan</div>
+                    <div class="small text-primary text-truncate"><a class="text-decoration-none"
+                            href="{{ route('x0.KelolaPenilaian') }}">🕊️ Halaman Validasi Nilai</a></div>
+                </div>
+            </div>
+        </div>
 
         {{-- <span class="my-2"></span> --}}
 
@@ -31,11 +36,11 @@
             <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col" width="110px">Nama Periode</th>
-                        <th scope="col" width="100px">Tipe Periode</th>
-                        <th scope="col" width="125px">Tgl Buka</th>
-                        <th scope="col" width="125px">Tgl Tutup</th>
-                        <th scope="col" width="100px">Status</th>
+                        <th scope="col" width="150px">Nama Periode</th>
+                        <th scope="col" width="150px">Tipe Periode</th>
+                        <th scope="col" width="150px">Tgl Buka</th>
+                        <th scope="col" width="150px">Tgl Tutup</th>
+                        <th scope="col" width="150px">Status</th>
                     </tr>
                 </thead>
             </table>

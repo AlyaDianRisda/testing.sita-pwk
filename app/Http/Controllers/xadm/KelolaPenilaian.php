@@ -66,7 +66,6 @@ class KelolaPenilaian extends Controller
                         'nama'        => optional($item->user)->name,
                         'tipe_sidang' => $item->tipe_sidang,
                         'pembimbing'  => optional($item->dosen)->name,
-                        'status'      => $item->status_sidang,
                         'review'      => $item->id
                         ? '<div class="d-flex"><a href="' . route('x0.KelolaPenilaian-json2', ['id' => $item->id]) . '" class="btn btn-primary btn-sm flex-fill" style="min-width: 70px; padding: 4px 6px; font-size: 0.85rem;">Manage</a>'
                         : '',

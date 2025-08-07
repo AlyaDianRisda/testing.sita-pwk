@@ -154,7 +154,16 @@ class TugasAkhir extends Controller
     // PAGE::VIEW
     public function x2tak2View(): View
     {
-        return view('xmhs.TAK2');
+        $mahasiswaId = auth()->id();
+
+        $bimbingan = BimbinganData::with(['dosen', 'dosen2'])
+            ->where('user_id', $mahasiswaId)
+            ->where('status_bimbingan', 'Berjalan')
+            ->latest()
+            ->first();
+        return view('xmhs.TAK2', [
+            'bimbingan' => $bimbingan,
+        ]);
     }
 
     // GET::DATA1

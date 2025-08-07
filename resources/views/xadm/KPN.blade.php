@@ -8,15 +8,14 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">NIM</th>
-                        <th scope="col">Nama Mahasiswa</th>
-                        <th scope="col">Tipe Sidang</th>
-                        <th scope="col">Dosen Pembimbing</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Review</th>
+                        <th scope="col" width="150px">NIM</th>
+                        <th scope="col" width="150px">Nama Mahasiswa</th>
+                        <th scope="col" width="150px">Tipe Sidang</th>
+                        <th scope="col" width="150px">Dosen Pembimbing</th>
+                        <th scope="col" width="150px">Review</th>
                     </tr>
                 </thead>
             </table>
@@ -53,10 +52,6 @@
                         name: 'pembimbing'
                     },
                     {
-                        data: 'status',
-                        name: 'status'
-                    },
-                    {
                         data: 'review',
                         name: 'review'
                     },
@@ -68,7 +63,7 @@
 
                 ],
                 order: [
-                    [6, 'desc']
+                    [5, 'desc']
                 ]
             });
         });

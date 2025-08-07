@@ -3,12 +3,13 @@ namespace App\Http\Controllers\xmhs;
 
 use App\Http\Controllers\Controller;
 use App\Models\SidangSubmission;
+use App\Models\BimbinganData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 
 setlocale(LC_TIME, 'id_ID');
-Carbon::setLocale('id'); 
+Carbon::setLocale('id');
 
 class JadwalSidang extends Controller
 {
@@ -20,14 +21,31 @@ class JadwalSidang extends Controller
     // PAGE::VIEW
     public function x2jsdView(): View
     {
-        $data = SidangSubmission::with(['user', 'topik', 'dosen'])
-            ->where('user_id', auth()->id())
+        $userId = auth()->id();
+        $data   = SidangSubmission::with(['user', 'topik', 'dosen'])
+            ->where('user_id', $userId)
+            ->orderByDesc('created_at') // atau bisa pakai 'id'
+            ->first();
+        $data2 = BimbinganData::with(['user', 'topik'])
+            ->where('user_id', $userId)
             ->first();
 
         return view('xmhs.JSD', [
-            'titleTopik' => $data?->topik?->title,
-            'judul'      => $data?->judul,
-            'namaDosen'  => $data?->dosen?->name,
+            'titleTopik'    => $data2?->topik?->title,
+            'judul'         => $data2?->judul,
+            'tipeSidang'    => $data?->tipe_sidang,
+            'tipePengajuan' => $data?->tipe_pengajuan,
+            'namaDosen1'    => $data?->dosen?->name,
+            'namaDosen2'    => $data?->dosen2?->name,
+            'namaPenguji1'  => $data?->penguji?->name,
+            'namaPenguji2'  => $data?->penguji2?->name,
+            'tanggalPel'    => $data && $data->jadwal_sidang
+            ? Carbon::parse($data->jadwal_sidang)->translatedFormat('d F Y')
+            : 'N/A',
+            'waktuPel'      => $data?->waktu_sidang,
+            'lokasiSidang'  => $data?->lokasi_sidang,
+            'skemaSidang'   => $data?->skema_sidang,
+            'linkSidang'    => $data?->link_sidang,
 
         ]);
     }
@@ -37,11 +55,11 @@ class JadwalSidang extends Controller
     {
         if ($request->ajax()) {
             $query = SidangSubmission::with(['user', 'topik', 'dosen', 'dosen2', 'penguji', 'penguji2'])
+                ->where('user_id', auth()->id())
                 ->where(function ($q) {
-                    $q->where('user_id', auth()->id());
-                })
-                ->where('status_sidang', 'Dibuat')
-                ->orWhere('status_sidang', 'Selesai');
+                    $q->where('status_sidang', 'Dibuat')
+                        ->orWhere('status_sidang', 'Selesai');
+                });
 
             $recordsTotal = SidangSubmission::count();
 
@@ -71,7 +89,9 @@ class JadwalSidang extends Controller
                         'dosen2'      => optional($item?->dosen2)->name,
                         'penguji'     => optional($item->penguji)->name,
                         'penguji2'    => optional($item?->penguji2)->name,
-                        'tanggal'     => Carbon::parse($item->jadwal_sidang)->translatedFormat('d M Y'),
+                        'tanggal'     => $item->jadwal_sidang
+                        ? Carbon::parse($item->jadwal_sidang)->translatedFormat('d F Y')
+                        : 'N/A',
                         'waktu'       => $item->waktu_sidang,
                         'status'      => $item->status_sidang,
                         'created_at'  => $item->created_at->toDateTimeString(),

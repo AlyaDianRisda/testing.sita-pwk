@@ -20,63 +20,63 @@
                     <div class="col-12 col-md-2">
                         <label for="input2" class="form-label">NIM</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" value="{{ $nimUser ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $nimUser ?? 'N/A' }}" disabled>
                         </div>
                     </div>
                     
                     <div class="col-12 col-md-10">
                         <label for="input2" class="form-label">Nama Mahasiswa</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" value="{{ $namaUser ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $namaUser ?? 'N/A' }}" disabled>
                         </div>
                     </div>
                     
                     <div class="col-12 col-md-6">
                         <label for="input3" class="form-label">Judul Tugas Akhir</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" value="{{ $judul ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $judul ?? 'N/A' }}" disabled>
                         </div>
                     </div>
                     
                     <div class="col-12 col-md-6">
                         <label for="input3" class="form-label">Topik Tugas Akhir</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" value="{{ $titleTopik ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $titleTopik ?? 'N/A' }}" disabled>
                         </div>
                     </div>
                     
                     <div class="col-12 col-md-6">
                         <label for="input2" class="form-label">Dosen Pembimbing</label>
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control bg-light" value="{{ $namaDosen ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $namaDosen ?? 'N/A' }}" disabled>
                         </div>
                     </div>
 
                     <div class="col-12 col-md-6">
                         <label for="input2" class="form-label">Dosen Pendamping</label>
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control bg-light" value="{{ $namaDosen2 ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $namaDosen2 ?? 'N/A' }}" disabled>
                         </div>
                     </div>
                     
                     <div class="col-12 col-md-6">
                         <label for="input2" class="form-label">Penguji 1</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" value="{{ $penguji }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $penguji }}" disabled>
                         </div>
                     </div>
                     
                     <div class="col-12 col-md-6">
                         <label for="input2" class="form-label">Penguji 2</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" value="{{ $penguji2 ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $penguji2 ?? 'N/A' }}" disabled>
                         </div>
                     </div>
                     
                     <div class="col-12">
                         <label for="input3" class="form-label">Tipe Sidang</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" value="{{ $tipe_sidang ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $tipe_sidang ?? 'N/A' }}" disabled>
                         </div>
                     </div>
                     

@@ -20,29 +20,39 @@
                     <input type="hidden" name="inp_judul" id="inp_judul" value="{{ $judul }}">
 
                     <!-- FORM DATA -->
-                    <div class="col-12 col-md-4">
-                        <label for="input2" class="form-label">Dosen Pembimbing</label>
+                    <div class="col-12 col-md-6">
+                        <label for="input1" class="form-label">Dosen Pembimbing</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" id="dosen" aria-label="input2"
-                                value="{{ $namaDosen ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" id="dosen"
+                                aria-label="input2" value="{{ $namaDosen ?? 'N/A' }}" disabled>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-8">
-                        <label for="input1" class="form-label">Topik Tugas Akhir</label>
+                    <div class="col-12 col-md-6">
+                        <label for="input2" class="form-label">Dosen Pendamping</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" id="topik" aria-label="input1"
-                                value="{{ $titleTopik ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" id="dosen"
+                                aria-label="input2" value="{{ $namaDosen2 ?? 'N/A' }}" disabled>
                         </div>
                     </div>
 
                     <div class="col-12">
-                        <label for="input3" class="form-label">Judul Tugas Akhir</label>
+                        <label for="input3" class="form-label">Topik Tugas Akhir</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" id="judul" aria-label="input3"
-                                value="{{ $judul ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" id="topik"
+                                aria-label="input1" value="{{ $titleTopik ?? 'N/A' }}" disabled>
                         </div>
                     </div>
+
+                    <div class="col-12">
+                        <label for="input4" class="form-label">Judul Tugas Akhir</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" id="judul"
+                                aria-label="input3" value="{{ $judul ?? 'N/A' }}" disabled>
+                        </div>
+                    </div>
+
+                    <hr class ="my-3" />
 
                     <!-- FORM INPUT -->
                     <div class="col-12">
@@ -91,14 +101,14 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-3">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Laporan Revisi</th>
-                        <th scope="col">Logbook</th>
-                        <th scope="col">Berita Acara</th>
-                        <th scope="col">Lembar Pengesahan</th>
-                        <th scope="col">Status</th>
+                        <th scope="col" width="150px">Laporan Revisi</th>
+                        <th scope="col" width="150px">Logbook</th>
+                        <th scope="col" width="150px">Berita Acara</th>
+                        <th scope="col" width="150px">Lembar Pengesahan</th>
+                        <th scope="col" width="150px">Status</th>
                     </tr>
                 </thead>
             </table>

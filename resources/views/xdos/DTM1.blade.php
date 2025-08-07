@@ -8,16 +8,16 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">NIM</th>
-                        <th scope="col">Nama Mahasiswa</th>
-                        <th scope="col">Pilihan Topik</th>
-                        <th scope="col">Rancangan Judul</th>
-                        <th scope="col">Berkas</th>
-                        <th scope="col" width="100px">Catatan</th>
-                        <th scope="col">Validasi</th>
+                        <th scope="col" width="150px">NIM</th>
+                        <th scope="col" width="150px">Nama Mahasiswa</th>
+                        <th scope="col" width="150px">Pilihan Topik</th>
+                        <th scope="col" width="150px">Rancangan Judul</th>
+                        <th scope="col" width="150px">Berkas</th>
+                        <th scope="col" width="150px">Catatan</th>
+                        <th scope="col" width="150px">Validasi</th>
                     </tr>
                 </thead>
             </table>

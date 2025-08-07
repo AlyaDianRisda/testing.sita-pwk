@@ -7,35 +7,58 @@
         <hr />
 
         <!-- STATUS -->
-        <span class="my-3 fw-bold fst-italic"> Progres Sidang Akhir :</span>
-        <div class="row">
+        <span class="my-3 fw-bold fst-italic "> Progres Sidang Akhir :</span>
+        <div class="row mb-5">
             <div class="col-6">
                 <div class="border-start border-start-4 border-start-info px-3 mb-3">
-                    <div class="small text-body-secondary text-truncate">Sidang Terakhir</div>
-                    <div class="fs-5 fw-semibold">Seminar Proposal</div>
+                    <div class="small text-body-secondary fw-semibold text-truncate">Sidang Terakhir</div>
+                    <div class="fs-5 fw-semibold">{{ $sidangTerakhir->tipe_sidang ?? 'N/A' }}</div>
+                    <div class="small text-info text-truncate">Status: {{ $sidangTerakhir->status_sidang ?? '-' }}</div>
                 </div>
             </div>
             <div class="col-6">
                 <div class="border-start border-start-4 border-start-danger px-3 mb-3">
-                    <div class="small text-body-secondary text-truncate">Pengajuan Terbaru</div>
-                    <div class="fs-5 fw-semibold">Seminar Pembahasan</div>
+                    <div class="small text-body-secondary fw-semibold text-truncate">Pengajuan Terbaru</div>
+                    <div class="fs-5 fw-semibold">{{ $pengajuanTerbaru->tipe_sidang ?? 'N/A' }}</div>
+                    <div class="small text-info text-truncate">Status: {{ $pengajuanTerbaru->status_sidang ?? '-' }}
+                    </div>
                 </div>
             </div>
         </div>
 
-        <span class="my-2"></span>
-
         <!-- DATA TABLE -->
-        <span class="my-3 fw-bold fst-italic"> Periode yang Terbuka :</span>
-        <div class="col-12">
+        <span class="my-3 fw-bold fst-italic "> Informasi Periode :</span>
+        <div class="col-12 mb-5">
             <table class="table table-hover" id="table1">
                 <thead>
-                    <tr class="table-light">
-                        <th scope="col" width="110px">Nama Periode</th>
-                        <th scope="col" width="100px">Tipe Periode</th>
-                        <th scope="col" width="125px">Tgl Buka</th>
-                        <th scope="col" width="125px">Tgl Tutup</th>
-                        <th scope="col" width="100px">Status</th>
+                    <tr class="table-info">
+                        <th scope="col" width="150px">Nama Periode</th>
+                        <th scope="col" width="150px">Tipe Periode</th>
+                        <th scope="col" width="150px">Tgl Buka</th>
+                        <th scope="col" width="150px">Tgl Tutup</th>
+                        <th scope="col" width="150px">Status</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <!-- DATA TABLE -->
+        <span class="my-3 fw-bold fst-italic "> Jadwal Sidang Terbaru :</span>
+        <div class="col-12 mb-5">
+            <table class="table table-hover" id="table2">
+                <thead>
+                    <tr class="table-warning">
+                        <th scope="col" width="150px">Nama Mahasiswa</th>
+                        <th scope="col" width="150px">Tipe Sidang</th>
+                        <th scope="col" width="150px">Tipe Pengajuan</th>
+                        <th scope="col" width="150px">Tanggal</th>
+                        <th scope="col" width="150px">Waktu</th>
+                        <th scope="col" width="150px">Pembimbing</th>
+                        <th scope="col" width="150px">Pendamping</th>
+                        <th scope="col" width="150px">Penguji 1</th>
+                        <th scope="col" width="150px">Penguji 2</th>
+                        <th scope="col" width="150px">Lokasi</th>
+                        <th scope="col" width="150px">Skema</th>
                     </tr>
                 </thead>
             </table>
@@ -105,6 +128,69 @@
                 ],
                 order: [
                     [4, 'desc']
+                ] // atau ganti ke kolom sesuai kebutuhan
+            });
+
+            // TABLE 2
+            $('#table2').DataTable({
+                dom: 'ftp',
+                scrollX: true,
+                lengthChange: false,
+                processing: true,
+                serverSide: true,
+                ajax: '{{ route('x2.Homepage-json2') }}',
+                columns: [{
+                        data: 'mhs_name',
+                        name: 'mhs_name'
+                    },
+                    {
+                        data: 'tipe_sidang',
+                        name: 'tipe_sidang'
+                    },
+                    {
+                        data: 'tipe_pengajuan',
+                        name: 'tipe_pengajuan'
+                    },
+                    {
+                        data: 'tanggal_sidang',
+                        name: 'tanggal_sidang'
+                    },
+                    {
+                        data: 'waktu_sidang',
+                        name: 'waktu_sidang'
+                    },
+                    {
+                        data: 'pembimbing',
+                        name: 'pembimbing'
+                    },
+                    {
+                        data: 'pendamping',
+                        name: 'pendamping'
+                    },
+                    {
+                        data: 'penguji_1',
+                        name: 'penguji_1'
+                    },
+                    {
+                        data: 'penguji_2',
+                        name: 'penguji_2'
+                    },
+                    {
+                        data: 'lokasi_sidang',
+                        name: 'lokasi_sidang'
+                    },
+                    {
+                        data: 'skema_sidang',
+                        name: 'skema_sidang'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at',
+                        visible: false
+                    }
+                ],
+                order: [
+                    [11, 'desc']
                 ] // atau ganti ke kolom sesuai kebutuhan
             });
         });

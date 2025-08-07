@@ -67,10 +67,10 @@ class PilihanTopik extends Controller
                 ->take($request->length)
                 ->get()
                 ->map(function ($item) {
-                    $idTopik    = urlencode($item->id ?? '');
-                    $titleTopik = urlencode($item->title ?? '');
-                    $idDosen    = urlencode(optional($item->dosen)->id ?? '');
-                    $namaDosen  = urlencode(optional($item->dosen)->name ?? '');
+                    $idTopik    = urlencode($item->id ?? 'N/A');
+                    $titleTopik = urlencode($item->title ?? 'N/A');
+                    $idDosen    = urlencode(optional($item->dosen)->id ?? 'N/A');
+                    $namaDosen  = urlencode(optional($item->dosen)->name ?? 'N/A');
 
                     $link = route('x2.TugasAkhir-1', ['idTopik' => $idTopik, 'idDosen' => $idDosen, 'namaDosen' => $namaDosen, 'titleTopik' => $titleTopik]);
 
@@ -84,8 +84,8 @@ class PilihanTopik extends Controller
                         'submission_count' => $item->proposal_submission_count,
                         'validated_sc'     => $item->validated_submission_count,
                         'submission'       => $item->proposal_submission_count >= 15 || $item->kuota_topik == $item->validated_submission_count
-                        ? '<button class="btn btn-sm btn-secondary flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" disabled>Penuh</button>'
-                        : '<a href="' . $link . '" class="btn btn-sm btn-primary flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;">Ajukan</a>',
+                        ? '<div class="d-flex"><button class="btn btn-sm btn-secondary flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" disabled>Penuh</button>'
+                        : '<div class="d-flex"><a href="' . $link . '" class="btn btn-sm btn-primary flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;">Pengajuan</a>',
                     ];
                 });
 

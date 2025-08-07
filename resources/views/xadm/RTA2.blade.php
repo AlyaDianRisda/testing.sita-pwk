@@ -9,19 +9,19 @@
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
 
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col" width="100px">NIM</th>
-                        <th scope="col" width="140px">Nama Mahasiswa</th>
-                        <th scope="col" width="100px">Judul</th>
-                        <th scope="col" width="100px">Pembimbing</th>
-                        <th scope="col" width="100px">Pendamping</th>
-                        <th scope="col" width="100px">Penguji 1</th>
-                        <th scope="col" width="100px">Penguji 2</th>
-                        <th scope="col" width="100px">Tipe Sidang</th>
+                        <th scope="col" width="150px">NIM</th>
+                        <th scope="col" width="150px">Nama Mahasiswa</th>
+                        <th scope="col" width="150px">Judul</th>
+                        <th scope="col" width="150px">Pembimbing</th>
+                        <th scope="col" width="150px">Pendamping</th>
+                        <th scope="col" width="150px">Penguji 1</th>
+                        <th scope="col" width="150px">Penguji 2</th>
+                        <th scope="col" width="150px">Tipe Sidang</th>
                         <th scope="col" width="150px">Tipe Pengajuan</th>
-                        <th scope="col" width="100px">Status</th>
+                        <th scope="col" width="150px">Status</th>
                     </tr>
                 </thead>
             </table>

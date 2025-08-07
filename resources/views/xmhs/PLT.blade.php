@@ -8,25 +8,25 @@
 
         <p class="p-2 border border-secondary rounded-3 fst-italic">
             <span class="fw-semibold fst-normal" style="color:darkblue">Penting!</span>
-            <br>1. Gunakan halaman ini untuk memilih topik tugas akhirmu.
-            <br>2. Pengajuan akan ditutup sementara jika jumlah pengajuan sudah lebih dari 15 orang atau ditutup permanen jika jumlah diterima sudah memenuhi kuota.
+            <br>1. Gunakan halaman ini untuk <span class="fw-semibold">memilih topik tugas akhir </span>dalam pengajuan proposalmu.
+            <br>2. Pengajuan akan ditutup sementara jika jumlah pengajuan sudah lebih dari <span class="fw-semibold">15 orang</span> atau ditutup permanen jika jumlah <span class="fw-semibold">mahasiswa diterima </span>sudah memenuhi kuota.
         </p>
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
                         <th scope="col" colspan="7" id="table1">Nama Periode</th>
                     </tr>
                     <tr class="table-light">
-                        <th scope="col">Keahlian</th>
-                        <th scope="col">Topik Tugas Akhir</th>
-                        <th scope="col">Nama Dosen</th>
-                        <th scope="col">Kuota</th>
-                        <th scope="col">Diajukan</th>
-                        <th scope="col">Diterima</th>
-                        <th scope="col">Pengajuan</th>
+                        <th scope="col" width="150px">Keahlian</th>
+                        <th scope="col" width="150px">Topik Tugas Akhir</th>
+                        <th scope="col" width="150px">Nama Dosen</th>
+                        <th scope="col" width="150px">Kuota</th>
+                        <th scope="col" width="150px">Diajukan</th>
+                        <th scope="col" width="150px">Diterima</th>
+                        <th scope="col" width="150px">Pengajuan</th>
                     </tr>
                 </thead>
             </table>

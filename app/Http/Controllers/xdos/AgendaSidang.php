@@ -4,7 +4,11 @@ namespace App\Http\Controllers\xdos;
 use App\Http\Controllers\Controller;
 use App\Models\SidangSubmission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\View\View;
+
+setlocale(LC_TIME, 'id_ID'); // Untuk fungsi bawaan PHP
+Carbon::setLocale('id');     // Untuk Carbon
 
 class AgendaSidang extends Controller
 {
@@ -81,14 +85,30 @@ class AgendaSidang extends Controller
 
                     return [
                         'id'          => $item->id,
+                        'aksi'        => '<div class="d-flex"><button class="btn btn-sm btn-primary btn-detail flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;"
+                                                    data-role="' . e($role) . '"
+                                                    data-topik="' . e(optional($item->topik)->title) . '"
+                                                    data-judul="' . e($item->judul) . '"
+                                                    data-tipe="' . e($item->tipe_sidang) . '"
+                                                    data-pengajuan="' . e($item->skema_sidang) . '"
+                                                    data-tanggal="' . (! empty($item->jadwal_sidang)
+                                                        ? Carbon::parse($item->jadwal_sidang)->translatedFormat('d M Y (l)')
+                                                        : 'N/A') . '"
+                                                    data-waktu="' . (! empty($item->waktu_sidang)
+                                                        ? Carbon::parse($item->waktu_sidang)->format('H:i') . ' WIB'
+                                                        : 'N/A') . '"
+                                                    data-lokasi="' . e($item->lokasi_sidang) . '"
+                                                    data-skema="' . e($item->skema_sidang) . '"
+                                                    data-link="' . e($item->link_sidang) . '">
+                                                    Detail
+                                                </button>',
                         'tipe_sidang' => $item->tipe_sidang,
                         'role'        => $role,
                         'nim'         => optional($item->user)->nim,
                         'nama'        => optional($item->user)->name,
-                        'topik'       => optional($item->topik)->title,
                         'tanggal'     => $item->jadwal_sidang,
                         'waktu'       => $item->waktu_sidang,
-                        'status'      => $item->status_sidang,
+                        'lokasi'      => $item->lokasi_sidang,
                     ];
                 });
 

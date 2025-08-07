@@ -34,29 +34,39 @@
                     <input type="hidden" name="tipe_pengajuan" id="selectedTipePengajuan">
 
                     <!-- FORM DATA -->
-                    <div class="col-12 col-md-4">
-                        <label for="input2" class="form-label">Dosen Pembimbing</label>
+                    <div class="col-12 col-md-6">
+                        <label for="input1" class="form-label">Dosen Pembimbing</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" id="dosen" aria-label="input2"
-                                value="{{ $namaDosen ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" id="dosen"
+                                aria-label="input2" value="{{ $namaDosen ?? 'N/A' }}" disabled>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-8">
-                        <label for="input1" class="form-label">Topik Tugas Akhir</label>
+                    <div class="col-12 col-md-6">
+                        <label for="input2" class="form-label">Dosen Pendamping</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" id="topik" aria-label="input1"
-                                value="{{ $titleTopik ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" id="dosen"
+                                aria-label="input2" value="{{ $namaDosen2 ?? 'N/A' }}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-12">
+                        <label for="input3" class="form-label">Topik Tugas Akhir</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" id="topik"
+                                aria-label="input1" value="{{ $titleTopik ?? 'N/A' }}" disabled>
                         </div>
                     </div>
 
                     <div class="col-12">
-                        <label for="input3" class="form-label">Judul Tugas Akhir</label>
+                        <label for="input4" class="form-label">Judul Tugas Akhir</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" id="judul" aria-label="input3"
-                                value="{{ $judul ?? '' }}" disabled>
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" id="judul"
+                                aria-label="input3" value="{{ $judul ?? 'N/A' }}" disabled>
                         </div>
                     </div>
+
+                    <hr class ="my-3" />
 
                     <!-- FORM INPUT -->
                     <div class="col-12">
@@ -76,12 +86,17 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="formFile2" class="form-label">Draft Laporan</label>
+                        <label for="formFile3" class="form-label">Draft Laporan</label>
                         <div class="input-group mb-3">
                             <input type="file" class="form-control" name="form3" id="form3"
                                 accept=".pdf,.doc,.docx" required>
                         </div>
                     </div>
+                    
+                    <p class="p-2 border border-secondary rounded-3 fst-italic">
+                        <span class="fw-semibold fst-normal" style="color:darkblue">Penting!</span>
+                        <br> Jika ingin memilih <span class="fw-semibold">Pengajuan Mandiri</span> atau ingin memilih tanggal dan waktu sidang sendiri, silahkan berkonsultasi dengan <span class="fw-semibold">Koodinator Tugas Akhir</span> dan memastikan jadwal dosen tersedia.
+                    </p>
 
                     <div class="col-12 col-md-3 mb-4">
                         <label for="jenis_periode" class="form-label">Tipe Pengajuan</label>
@@ -142,7 +157,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-2 mt-2">
+                <div class="col-12 col-md-2 mt-4">
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-sm btn-primary flex-fill">
                             Submit
@@ -157,17 +172,15 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-5">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Topik</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Tipe Sidang</th>
-                        <th scope="col">Tipe Pengajuan</th>
-                        <th scope="col">Form Pendaftaran</th>
-                        <th scope="col">Logbook</th>
-                        <th scope="col">Draft Laporan</th>
-                        <th scope="col">Status</th>
+                        <th scope="col" width="150px">Tipe Sidang</th>
+                        <th scope="col" width="150px">Tipe Pengajuan</th>
+                        <th scope="col" width="150px">Form Pendaftaran</th>
+                        <th scope="col" width="150px">Logbook</th>
+                        <th scope="col" width="150px">Draft Laporan</th>
+                        <th scope="col" width="150px">Status</th>
                     </tr>
                 </thead>
             </table>
@@ -188,14 +201,6 @@
                 serverSide: true,
                 ajax: '{{ route('x2.PendaftaranSidang1-json1') }}',
                 columns: [{
-                        data: 'topik',
-                        name: 'topik'
-                    },
-                    {
-                        data: 'judul',
-                        name: 'judul'
-                    },
-                    {
                         data: 'tipe_sidang',
                         name: 'tipe_sidang'
                     },
@@ -226,7 +231,7 @@
                     }
                 ],
                 order: [
-                    [8, 'desc']
+                    [6, 'desc']
                 ]
             });
 

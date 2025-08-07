@@ -8,12 +8,12 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Nama Lengkap</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col" width="150px">Nama Lengkap</th>
+                        <th scope="col" width="150px">E-mail</th>
+                        <th scope="col" width="150px">Aksi</th>
                     </tr>
                 </thead>
             </table>
@@ -51,7 +51,7 @@
                     <div class="col-12 col-md-6">
                         <label class="form-label">Password Default</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light" placeholder="default-sitapwk" aria-label="title"
+                            <input type="text" class="form-control bg-white text-primary fw-semibold" placeholder="default-sitapwk" aria-label="title"
                                 disabled>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
         $(document).ready(function() {
             // GET DATA 
             var table = $('#table1').DataTable({
-                "dom": 'ftp',
+                dom: 'ftp',
                 lengthChange: false,
                 processing: true,
                 serverSide: true,
@@ -98,8 +98,9 @@
                         searchable: false,
                         render: function(data, type, row) {
                             return `
-                            <button class="btn btn-primary text-white btn-sm btn-reset flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" data-id="${data}">Reset Password</button>
-                            <button class="btn btn-danger text-white btn-sm btn-delete flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" data-id="${data}">Hapus Data</button>
+                            <div class="d-flex gap-2">
+                            <button class="btn btn-primary text-white btn-sm btn-reset flex-fill" style="min-width: 125px; padding: 4px 6px; font-size: 0.85rem;" data-id="${data}">Reset Password</button>
+                            <button class="btn btn-danger text-white btn-sm btn-delete flex-fill" style="min-width: 125px; padding: 4px 6px; font-size: 0.85rem;" data-id="${data}">Hapus Data</button>
                         `;
                         }
                     },

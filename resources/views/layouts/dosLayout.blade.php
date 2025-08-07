@@ -61,7 +61,18 @@
         body {
             background-color: #f8f9fa !important;
         }
-        
+
+        .card {
+            border-radius: 1.2rem !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .dataTables_wrapper thead th {
+            background: linear-gradient(to right, #dbeafe, #e0f2fe);
+            color: #1e3a8a;
+
+        }
+
         table.dataTable td,
         table.dataTable th {
             padding: 6px 12px;
@@ -143,8 +154,8 @@
     <div class="sidebar sidebar-light sidebar-fixed border-end" id="sidebar">
         <div class="sidebar-header border-bottom">
             <div class="sidebar-brand">
-                <img src="{{ asset('coreui/assets/brand/logo-pwkn.svg') }}" alt="CoreUI Logo" class="sidebar-brand-full"
-                    width="100%" height="100%" />
+                <img src="{{ asset('coreui/assets/brand/logo-pwkn.svg') }}" alt="CoreUI Logo"
+                    class="sidebar-brand-full" width="100%" height="100%" />
             </div>
             <button class="btn-close d-lg-none" type="button" data-coreui-theme="dark" aria-label="Close"
                 onclick='coreui.Sidebar.getInstance(document.querySelector("#sidebar")).toggle()'></button>
@@ -167,7 +178,7 @@
                         <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-paperclip') }}">
                         </use>
                     </svg>
-                    Periode TA</a>
+                    Periode Tugas Akhir</a>
             </li>
 
             <li class="nav-item">
@@ -176,7 +187,7 @@
                         <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-library-add') }}">
                         </use>
                     </svg>
-                    Input Topik</a>
+                    Input Topik Dosen</a>
             </li>
 
             <li class="nav-title fw-semibold accent-text my-0">Manajemen</li>

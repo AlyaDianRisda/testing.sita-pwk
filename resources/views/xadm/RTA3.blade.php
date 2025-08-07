@@ -8,13 +8,13 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Nama Periode</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Tipe Periode</th>
-                        <th scope="col">Download</th>
+                        <th scope="col" width="150px">Nama Periode</th>
+                        <th scope="col" width="150px">Tanggal</th>
+                        <th scope="col" width="150px">Tipe Periode</th>
+                        <th scope="col" width="150px">Download</th>
                     </tr>
                 </thead>
             </table>

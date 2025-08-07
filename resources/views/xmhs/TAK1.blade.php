@@ -11,7 +11,7 @@
                 <p class="p-2 border border-secondary rounded-3 fst-italic">
                     <span class="fw-semibold fst-normal" style="color:darkblue">Penting!</span><br>Pastikan untuk memilih
                     topik terlebih dahulu dari
-                    halaman "List Topik TA" dan melakukan pengajuan.
+                    halaman <a href="{{ route('x2.TopikTA') }}">daftar topik dosen</a> sebelum mengisi form ini.
                 </p>
             </div>
         </div>
@@ -29,12 +29,12 @@
                     <!-- FORM DATA -->
                     <div class="col-12 col-md-6">
                         <label class="form-label">Pilihan Topik</label>
-                        <input type="text" class="form-control bg-light" value="{{ $titleTopik ?? '' }}" disabled>
+                        <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $titleTopik ?? 'N/A' }}" disabled>
                     </div>
 
                     <div class="col-12 col-md-6">
                         <label class="form-label">Dosen Pembimbing 1</label>
-                        <input type="text" class="form-control bg-light" value="{{ $namaDosen ?? '' }}" disabled>
+                        <input type="text" class="form-control bg-white text-primary fw-semibold" value="{{ $namaDosen ?? 'N/A' }}" disabled>
                     </div>
 
                     <!-- FORM INPUT -->
@@ -60,16 +60,16 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-3">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th>Topik</th>
-                        <th>Dosen Pembimbing</th>
-                        <th>Periode</th>
-                        <th>Rancangan Judul</th>
-                        <th>Berkas Draft</th>
-                        <th>Status</th>
-                        <th>Catatan Validasi</th>
+                        <th scope="col" width="150px">Topik</th>
+                        <th scope="col" width="150px">Dosen Pembimbing</th>
+                        <th scope="col" width="150px">Periode</th>
+                        <th scope="col" width="150px">Rancangan Judul</th>
+                        <th scope="col" width="150px">Berkas Draft</th>
+                        <th scope="col" width="150px">Status</th>
+                        <th scope="col" width="150px">Catatan Validasi</th>
                     </tr>
                 </thead>
             </table>

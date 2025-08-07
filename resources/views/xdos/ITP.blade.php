@@ -31,7 +31,8 @@
                             anda periode ini : <span class="fw-bold">{{ $kuota_tersisa }} / {{ $kuota_total }}
                                 slot</span> <br>1. Silahkan
                             dibagi ke beberapa topik.
-                            <br> 2. Hanya dosen pembimbing yang dapat membuat topik. Jika kuota anda 0, silahkan hubungi Koordinator Tugas Akhir.
+                            <br> 2. Hanya <span class="fw-semibold">Dosen Pembimbing</span> yang dapat membuat topik. Jika kuota anda nol, silahkan hubungi Koordinator Tugas Akhir.
+                            <br> 3. Jika dosen menghapus topik yang sudah diajukan mahasiswa, maka <span class="fw-semibold">data mahasiswa sudah yang disetujui akan terhapus</span> juga.
                     </div>
                 </div>
 
@@ -70,16 +71,16 @@
 
         <!-- DATA TABLE -->
         <div class="col-12 mt-4">
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Topik</th>
-                        <th scope="col">Keahlian</th>
-                        <th scope="col">Periode</th>
-                        <th scope="col">Kuota</th>
-                        <th scope="col">Diajukan</th>
-                        <th scope="col">Diterima</th>
-                        <th scope="col">Hapus</th>
+                        <th scope="col" width="150px">Topik</th>
+                        <th scope="col" width="150px">Keahlian</th>
+                        <th scope="col" width="150px">Periode</th>
+                        <th scope="col" width="150px">Kuota</th>
+                        <th scope="col" width="150px">Diajukan</th>
+                        <th scope="col" width="150px">Diterima</th>
+                        <th scope="col" width="150px">Hapus</th>
                     </tr>
                 </thead>
             </table>
@@ -129,7 +130,7 @@
                         searchable: false,
                         render: function(data, type, row) {
                             return `
-                            <button class="btn btn-danger btn-sm btn-delete text-light flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" data-id="${data}">Hapus Data</button>
+                            <div class="d-flex"><button class="btn btn-danger btn-sm btn-delete text-light flex-fill" style="min-width: 100px; padding: 4px 6px; font-size: 0.85rem;" data-id="${data}">Hapus Data</button>
                         `;
                         }
                     },

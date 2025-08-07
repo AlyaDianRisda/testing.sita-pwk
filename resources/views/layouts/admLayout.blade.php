@@ -61,6 +61,17 @@
         body {
             background-color: #f8f9fa !important;
         }
+        
+        .card {
+            border-radius: 1.2rem !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .dataTables_wrapper thead th {
+            background: linear-gradient(to right, #dbeafe, #e0f2fe);
+            color: #1e3a8a;
+
+        }
 
         table.dataTable td,
         table.dataTable th {
@@ -68,7 +79,7 @@
             /* atas-bawah, kiri-kanan */
             font-size: 1rem;
         }
-        
+
         .dataTables_wrapper .dataTables_filter {
             float: left !important;
             text-align: left !important;
@@ -143,8 +154,8 @@
     <div class="sidebar sidebar-light sidebar-fixed border-end" id="sidebar">
         <div class="sidebar-header border-bottom">
             <div class="sidebar-brand">
-                <img src="{{ asset('coreui/assets/brand/logo-pwkn.svg') }}" alt="CoreUI Logo" class="sidebar-brand-full"
-                    width="100%" height="100%" />
+                <img src="{{ asset('coreui/assets/brand/logo-pwkn.svg') }}" alt="CoreUI Logo"
+                    class="sidebar-brand-full" width="100%" height="100%" />
             </div>
         </div>
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">

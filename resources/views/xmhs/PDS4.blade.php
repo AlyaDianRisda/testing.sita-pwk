@@ -6,17 +6,22 @@
         <span class="fw-semibold fs-5 mb-1">Data Hasil Keputusan dan Nilai Sidang</span>
         <hr />
 
+        <p class="p-2 border border-secondary rounded-3 fst-italic">
+            <span class="fw-semibold fst-normal" style="color:darkblue">Penting!</span>
+            <br> Nilai huruf dapat dilihat di <a href="https://siakad.itera.ac.id/" target="_blank">SIAKAD ITERA</a> dan permintaan perubahan nilai hanya bisa dilakukan setelah melaksanakan <span class="fw-semibold">Sidang Ujian</span>.
+        </p>
+
         <!-- DATA TABLE -->
         <div class="col-12 mt-2">
 
-            <table class="table table-bordered table-hover" id="table1">
+            <table class="table table-hover" id="table1">
                 <thead>
                     <tr class="table-light">
-                        <th scope="col">Tipe Sidang</th>
-                        <th scope="col">Dosen Pembimbing</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Keputusan</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col" width="150px">Tipe Sidang</th>
+                        <th scope="col" width="150px">Dosen Pembimbing</th>
+                        <th scope="col" width="150px">Status</th>
+                        <th scope="col" width="150px">Keputusan</th>
+                        <th scope="col" width="150px">Aksi</th>
                     </tr>
                 </thead>
             </table>
